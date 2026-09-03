@@ -144,8 +144,7 @@ tests/
 - **O simulador não é um Prometheus de verdade**: ele sempre injeta o mesmo
   padrão de pico sintético, só pra provar que o pipeline (busca → análise →
   correlação → LLM → texto) funciona de ponta a ponta.
-- **Só Prometheus por enquanto** — Zabbix e ELK ficaram de fora do escopo de
-  fim de semana; a interface `MetricsSource` foi desenhada pra isso não
+- **Prometheus** — a interface `MetricsSource` foi desenhada pra isso não
   exigir reescrever o resto do pipeline.
 
 ## Stack
