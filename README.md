@@ -7,12 +7,6 @@ Um CLI que consulta métricas do Prometheus, correlaciona com deploys
 recentes e resume em português simples o que está acontecendo — no estilo
 "CPU alta há 20min no pod X, correlacionado com o deploy da v1.8.2".
 
-Terceiro projeto de uma série pensada pra fechar o gap entre minha
-experiência real com Grafana/Zabbix/ELK e a ausência de projetos públicos de
-IA aplicada (veja o [`network-config-copilot`](https://github.com/helen-caroline/network-config-copilot)
-e o [`iac-pr-reviewer-bot`](https://github.com/helen-caroline/iac-pr-reviewer-bot),
-projetos 1 e 2 da mesma série).
-
 ## A ideia central: código calcula, LLM narra
 
 Os três projetos da série compartilham um princípio: **o LLM nunca decide
