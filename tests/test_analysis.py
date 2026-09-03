@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
+import pytest
+
 from obscopilot.analysis import compute_stats
 from obscopilot.sources.base import Sample
 
@@ -31,7 +33,10 @@ def test_flat_series_is_not_anomalous():
     stats = compute_stats(samples, target="checkout-api", metric="cpu", recent_window=timedelta(minutes=20))
 
     assert stats.is_anomalous is False
-    assert stats.peak_ratio == 1.0
+    # sum/len over 60 float additions of 0.15 doesn't reproduce exactly 0.15
+    # bit-for-bit on every platform/Python build — compare with a tolerance
+    # instead of exact equality (this is what actually failed in CI on 3.10).
+    assert stats.peak_ratio == pytest.approx(1.0)
 
 
 def test_near_zero_baseline_does_not_blow_up_the_ratio():
